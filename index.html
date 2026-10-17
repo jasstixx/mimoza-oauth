@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Mimoza – ritorno all'app</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #FFF8F0; color: #2B2118; text-align: center; padding: 48px 20px; }
+    a { display: inline-block; margin-top: 24px; padding: 16px 28px; background: #C2410C; color: #fff; border-radius: 14px; text-decoration: none; font-size: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Collegamento a Etsy…</h1>
+  <p>Sto riaprendo l'app Mimoza.</p>
+  <a id="open" href="mimoza://oauth">Apri l'app</a>
+  <script>
+    // Etsy rimanda qui con ?code=…&state=… (o ?error=…).
+    // Questa pagina non salva e non invia nulla: passa i parametri all'app.
+    var target = 'mimoza://oauth' + window.location.search;
+    document.getElementById('open').href = target;
+    window.location.replace(target);
+  </script>
+</body>
+</html>
